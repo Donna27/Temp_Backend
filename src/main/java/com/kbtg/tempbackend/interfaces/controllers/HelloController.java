@@ -1,4 +1,4 @@
-package com.kbtg.tempbackend.controller;
+package com.kbtg.tempbackend.interfaces.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

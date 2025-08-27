@@ -1,4 +1,4 @@
-package com.kbtg.tempbackend.dto;
+package com.kbtg.tempbackend.interfaces.dtos;
 
 public class LoginResponse {
     

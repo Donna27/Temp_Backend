@@ -1,9 +1,9 @@
 package com.kbtg.tempbackend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kbtg.tempbackend.dto.LoginRequest;
-import com.kbtg.tempbackend.model.User;
-import com.kbtg.tempbackend.repository.UserRepository;
+import com.kbtg.tempbackend.interfaces.dtos.LoginRequest;
+import com.kbtg.tempbackend.infrastructure.entities.UserJpaEntity;
+import com.kbtg.tempbackend.infrastructure.repositories.UserJpaRepository;
 import com.kbtg.tempbackend.util.JwtUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,7 +39,7 @@ class UserControllerIntegrationTest {
     private ObjectMapper objectMapper;
 
     @Autowired
-    private UserRepository userRepository;
+    private UserJpaRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -47,7 +47,7 @@ class UserControllerIntegrationTest {
     @Autowired
     private JwtUtil jwtUtil;
 
-    private User testUser;
+    private UserJpaEntity testUser;
 
     @BeforeEach
     void setUp() {
@@ -55,13 +55,13 @@ class UserControllerIntegrationTest {
         
         userRepository.deleteAll();
         
-        testUser = new User();
+        testUser = new UserJpaEntity();
         testUser.setEmail("test@example.com");
         testUser.setPassword(passwordEncoder.encode("password123"));
         testUser.setFirstname("John");
         testUser.setLastname("Doe");
         testUser.setPhoneNumber("1234567890");
-        testUser.setBirthday(LocalDate.of(1990, 1, 1));
+        testUser.setDateOfBirth(LocalDate.of(1990, 1, 1));
         
         userRepository.save(testUser);
     }

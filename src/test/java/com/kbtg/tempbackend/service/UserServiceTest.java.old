@@ -1,10 +1,12 @@
 package com.kbtg.tempbackend.service;
 
-import com.kbtg.tempbackend.interfaces.dtos.LoginRequest;
-import com.kbtg.tempbackend.interfaces.dtos.LoginResponse;
-import com.kbtg.tempbackend.interfaces.dtos.UserProfileResponse;
-import com.kbtg.tempbackend.interfaces.dtos.UserRegistrationResponse;
-import com.kbtg.tempbackend.application.services.UserApplicationService;
+import com.kbtg.tempbackend.dto.LoginRequest;
+import com.kbtg.tempbackend.dto.LoginResponse;
+import com.kbtg.tempbackend.dto.UserProfileResponse;
+import com.kbtg.tempbackend.dto.UserRegistrationResponse;
+import com.kbtg.tempbackend.model.User;
+import com.kbtg.tempbackend.repository.UserRepository;
+import com.kbtg.tempbackend.util.JwtUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,8 +27,18 @@ import static org.mockito.Mockito.*;
 class UserServiceTest {
 
     @Mock
-    private UserApplicationService userApplicationService;
+    private UserRepository userRepository;
 
+    @Mock
+    private PasswordEncoder passwordEncoder;
+
+    @Mock
+    private JwtUtil jwtUtil;
+
+    @InjectMocks
+    private UserService userService;
+
+    private User testUser;
     private LoginRequest loginRequest;
 
     @BeforeEach

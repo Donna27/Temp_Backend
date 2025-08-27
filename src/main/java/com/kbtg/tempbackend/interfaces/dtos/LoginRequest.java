@@ -1,4 +1,4 @@
-package com.kbtg.tempbackend.dto;
+package com.kbtg.tempbackend.interfaces.dtos;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

@@ -1,5 +1,6 @@
 package com.kbtg.tempbackend.controller;
 
+import com.kbtg.tempbackend.interfaces.controllers.HelloController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

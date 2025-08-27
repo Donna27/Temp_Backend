@@ -1,4 +1,4 @@
-package com.kbtg.tempbackend.dto;
+package com.kbtg.tempbackend.interfaces.dtos;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import com.fasterxml.jackson.annotation.JsonFormat;

@@ -1,6 +1,6 @@
 package com.kbtg.tempbackend.config;
 
-import com.kbtg.tempbackend.filter.JwtAuthenticationFilter;
+import com.kbtg.tempbackend.infrastructure.security.JwtAuthenticationFilterClean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,7 +14,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthenticationFilter) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http, JwtAuthenticationFilterClean jwtAuthenticationFilter) throws Exception {
         http.csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
                 .requestMatchers("/api/register", "/api/login", "/swagger-ui/**", "/v3/api-docs/**", "/get").permitAll()
