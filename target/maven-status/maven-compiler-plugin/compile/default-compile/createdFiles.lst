@@ -1,0 +1,3 @@
+com\kbtg\tempbackend\TempBackendApplication.class
+com\kbtg\tempbackend\config\OpenApiConfig.class
+com\kbtg\tempbackend\controller\HelloController.class
